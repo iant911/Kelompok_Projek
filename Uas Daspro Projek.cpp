@@ -56,3 +56,24 @@ int main() {
 
     // Menampilkan seluruh data apartemen
     displayApartments(apartments);
+
+// Menampilkan seluruh data apartemen
+    displayApartments(apartments);
+
+    //WILDAN SEPTIAN
+    // Sorting apartemen berdasarkan harga sewa tertinggi sampai terendah
+    sort(apartments.begin(), apartments.end(), comparePrice);
+
+    
+    cout << "\nApartemen dengan Harga Sewa Tertinggi sampai Terendah:\n";
+    for (const Apartment& apt : apartments) {
+        cout << "No. Unit: " << apt.unitNumber << ", Harga Sewa: " << fixed << setprecision(2) << apt.price << endl;
+    }
+
+    // Menampilkan nomor unit apartemen yang tersedia (belum terjual)
+    cout << "\nNomer Unit Apartemen yang Tersedia (Belum Terjual):\n";
+    for (const Apartment& apt : apartments) {
+        if (!apt.sold) {
+            cout << "No. Unit: " << apt.unitNumber << endl;
+        }
+    }
