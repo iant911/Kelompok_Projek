@@ -26,3 +26,33 @@ struct Apartment {
 bool comparePrice(const Apartment& a, const Apartment& b) {
     return a.price > b.price;
 }
+//  ADY YOGA PRATAMA
+// Fungsi untuk menampilkan seluruh data apartemen
+void displayApartments(const vector<Apartment>& apartments) {
+    cout << "Daftar Apartemen:\n";
+    cout << "==================================================================\n";
+    cout << "Lantai | No. Unit |   Tipe   |  Luas  |   Harga/Unit   | Terjual |\n";
+    cout << "==================================================================\n";
+    for (const Apartment& apt : apartments) {
+        cout << setw(7) << apt.floor << " |";
+        cout << setw(9) << apt.unitNumber << " |";
+        cout << setw(9) << apt.type << " |";
+        cout << setw(6) << apt.area << " |";
+        cout << setw(14) << fixed << setprecision(2) << apt.price << " |";
+        cout << setw(8) << (apt.sold ? "Terjual" : "Belum") << " |\n";
+    }
+    cout << "==================================================================\n";
+}
+
+int main() {
+    vector<Apartment> apartments;
+
+    // Menambahkan data apartemen
+    apartments.push_back({2, 101, "2 Kamar", 75.5, 1200000, true});
+    apartments.push_back({4, 302, "3 Kamar", 100.2, 1500000, false});
+    apartments.push_back({3, 205, "1 Kamar", 50.0, 800000, true});
+    apartments.push_back({1, 407, "Studio", 40.5, 600000, false});
+    apartments.push_back({2, 209, "2 Kamar", 70.0, 1100000, false});
+
+    // Menampilkan seluruh data apartemen
+    displayApartments(apartments);
