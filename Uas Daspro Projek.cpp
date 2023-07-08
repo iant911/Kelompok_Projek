@@ -46,6 +46,19 @@ void displayApartments(const vector<Apartment>& apartments) {
 
 int main() {
     vector<Apartment> apartments;
+// Menampilkan seluruh data apartemen
+    displayApartments(apartments);
+
+    //WILDAN SEPTIAN
+    // Sorting apartemen berdasarkan harga sewa tertinggi sampai terendah
+    sort(apartments.begin(), apartments.end(), comparePrice);
+
+    
+    cout << "\nApartemen dengan Harga Sewa Tertinggi sampai Terendah:\n";
+    for (const Apartment& apt : apartments) {
+        cout << "No. Unit: " << apt.unitNumber << ", Harga Sewa: " << fixed << setprecision(2) << apt.price << endl;
+    }
+
 
     // Menambahkan data apartemen
     apartments.push_back({2, 101, "2 Kamar", 75.5, 1200000, true});
